@@ -5,93 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bibel als Anbetungslied</title>
   <meta name="description" content="Bibel als Anbetungslied - eine einfache GitHub-Page.">
-  <style>
-    :root {
-      --bg: #f6f1e9;
-      --bg2: #efe2cd;
-      --ink: #1d1a16;
-      --gold: #a36a00;
-      --card: rgba(255, 255, 255, 0.72);
-      --line: rgba(29, 26, 22, 0.12);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--ink);
-      font-family: Georgia, "Times New Roman", serif;
-      background:
-        radial-gradient(circle at 20% 10%, #fff8ed 0, transparent 45%),
-        radial-gradient(circle at 90% 80%, #f4d9a7 0, transparent 40%),
-        linear-gradient(135deg, var(--bg), var(--bg2));
-      display: grid;
-      place-items: center;
-      padding: 24px;
-    }
-
-    main {
-      max-width: 760px;
-      width: 100%;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 32px;
-      backdrop-filter: blur(2px);
-      box-shadow: 0 18px 45px rgba(24, 16, 3, 0.12);
-    }
-
-    h1 {
-      margin: 0 0 8px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.1;
-      letter-spacing: 0.02em;
-    }
-
-    p {
-      margin: 0;
-      font-size: clamp(1.05rem, 2vw, 1.25rem);
-      color: #40362c;
-    }
-
-    .menu {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin: 0 0 24px;
-      padding: 0 0 14px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .menu a {
-      color: #7a4d00;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .menu a:hover {
-      text-decoration: underline;
-    }
-
-    .mark {
-      color: var(--gold);
-    }
-  </style>
+  <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
   <main>
-    <nav class="menu" aria-label="Hauptmenue">
-      <a href="index.html">Startseite</a>
-      <a href="erlebe-den-osterweg.html">Erlebe den Osterweg</a>
-      <a href="lied-1-jesus-zieht-in-jerusalem-ein.html">Lied 1</a>
-      <a href="lied-2-jesus-waescht-die-fuesse.html">Lied 2</a>
-    </nav>
-    <h1><span class="mark">Bibel</span> als Anbetungslied</h1>
-    <p>Willkommen auf der GitHub-Seite dieses Projekts.</p>
-    <p style="margin-top: 18px;">Zur Unterseite: <a href="erlebe-den-osterweg.html">Erlebe den Osterweg</a></p>
+    <div class="topbar">
+      <button class="hamburger" data-menu-toggle aria-controls="site-nav" aria-expanded="false">☰ Menü</button>
+    </div>
+    <div class="layout">
+      <aside class="sidebar">
+        <nav class="menu" id="site-nav" aria-label="Hauptmenue">
+          <a class="nav-link active" href="index.html">Startseite</a>
+          <a class="nav-link" href="erlebe-den-osterweg.html">Erlebe den Osterweg</a>
+          <div class="submenu">
+            <a class="nav-link" href="lied-1-jesus-zieht-in-jerusalem-ein.html">Jesus zieht in Jerusalem ein</a>
+            <a class="nav-link" href="lied-2-jesus-waescht-die-fuesse.html">Jesus w&auml;scht die F&uuml;&szlig;e</a>
+          </div>
+        </nav>
+      </aside>
+      <section class="content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          Startseite
+        </nav>
+        <h1>Bibel als Anbetungslied</h1>
+        <p>Willkommen auf der GitHub-Seite dieses Projekts.</p>
+        <p>Zur Unterseite: <a href="erlebe-den-osterweg.html">Erlebe den Osterweg</a></p>
+      </section>
+    </div>
   </main>
+  <script src="js/menu.js"></script>
 </body>
 </html>
