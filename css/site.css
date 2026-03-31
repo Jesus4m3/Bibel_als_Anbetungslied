@@ -201,6 +201,22 @@ p {
   color: #4a2f00;
 }
 
+.legal-footer {
+  text-align: center;
+  margin-top: 12px;
+  color: #6f4700;
+}
+
+.legal-footer a {
+  color: #6f4700;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.legal-footer a:hover {
+  text-decoration: underline;
+}
+
 .bottom-nav {
   position: fixed;
   left: 0;
