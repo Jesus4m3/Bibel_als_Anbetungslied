@@ -20,6 +20,7 @@ body {
     radial-gradient(circle at 88% 85%, #f0d7a4 0, transparent 34%),
     linear-gradient(135deg, var(--bg), var(--bg2));
   padding: 24px;
+  padding-bottom: 92px;
 }
 
 main {
@@ -200,9 +201,43 @@ p {
   color: #4a2f00;
 }
 
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.92);
+  border-top: 1px solid var(--line);
+  backdrop-filter: blur(6px);
+}
+
+.bottom-nav a,
+.bottom-nav span {
+  display: inline-block;
+  min-width: 140px;
+  text-align: center;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  background: #fff7e8;
+  color: #6f4700;
+}
+
+.bottom-nav span {
+  opacity: 0.45;
+}
+
 @media (max-width: 900px) {
   body {
     padding: 12px;
+    padding-bottom: 92px;
   }
 
   .topbar {
