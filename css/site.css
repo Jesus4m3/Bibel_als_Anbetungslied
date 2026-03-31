@@ -170,6 +170,11 @@ p {
   display: block;
 }
 
+.thumb-link {
+  margin: -10px 0 18px;
+  font-weight: 700;
+}
+
 .platforms {
   margin: 0 0 24px;
 }
