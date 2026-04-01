@@ -64,6 +64,14 @@ main {
   gap: 10px;
 }
 
+.menu-status {
+  margin: 0;
+  padding: 8px 10px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  color: #5a4b3c;
+}
+
 .nav-link {
   color: var(--accent);
   font-weight: 700;
