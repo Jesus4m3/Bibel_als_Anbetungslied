@@ -1,6 +1,9 @@
 (() => {
   const toggle = document.querySelector("[data-menu-toggle]");
   const nav = document.querySelector("#site-nav");
+  const script =
+    document.currentScript ||
+    document.querySelector('script[src$="js/menu.js"], script[src*="/js/menu.js"]');
 
   if (toggle) {
     toggle.addEventListener("click", () => {
@@ -10,87 +13,63 @@
   }
 
   if (!nav) return;
-
-  const script =
-    document.currentScript ||
-    document.querySelector('script[src$="js/menu.js"], script[src*="/js/menu.js"]');
-
   if (!script) return;
 
   const siteRootUrl = new URL("../", script.src);
   const currentPagePath = normalizePathname(window.location.pathname);
+  const rootConfig = window.SITE_NAVIGATION || { pages: [], sections: [] };
 
-  renderNavigation().catch((error) => {
-    console.error("Navigation konnte nicht geladen werden.", error);
-    nav.innerHTML = '<p class="menu-status">Navigation konnte nicht geladen werden.</p>';
-  });
+  nav.innerHTML = "";
 
-  async function renderNavigation() {
-    const rootConfigUrl = new URL("nav.json", siteRootUrl);
-    const rootConfig = await fetchJson(rootConfigUrl);
+  for (const page of rootConfig.pages || []) {
+    nav.appendChild(createLink(page, siteRootUrl));
+  }
 
-    nav.innerHTML = "";
+  for (const section of rootConfig.sections || []) {
+    nav.appendChild(createLink({ title: section.title, href: section.href }, siteRootUrl));
 
-    for (const page of rootConfig.pages || []) {
-      nav.appendChild(createLink(page, siteRootUrl));
+    const sectionPages =
+      (window.SECTION_NAVIGATION && window.SECTION_NAVIGATION[section.folder]) || [];
+
+    if (!sectionPages.length) continue;
+
+    const submenu = document.createElement("div");
+    submenu.className = "submenu";
+    const sectionBaseUrl = new URL(`${trimSlashes(section.folder)}/`, siteRootUrl);
+
+    const sectionPath = normalizePathname(resolveHref(section.href, siteRootUrl));
+    const isInsideSection =
+      currentPagePath === sectionPath || currentPagePath.startsWith(`${sectionPath}/`);
+
+    if (isInsideSection) {
+      submenu.classList.add("is-visible");
     }
 
-    for (const section of rootConfig.sections || []) {
-      const sectionLink = createLink(
-        { title: section.title, href: section.href },
-        siteRootUrl,
-      );
-      nav.appendChild(sectionLink);
-
-      if (!section.folder) continue;
-
-      const sectionBaseUrl = new URL(`${trimSlashes(section.folder)}/`, siteRootUrl);
-      const sectionPath = normalizePathname(sectionBaseUrl.pathname);
-      const isInsideSection =
-        currentPagePath === sectionPath || currentPagePath.startsWith(`${sectionPath}/`);
-
-      const submenu = document.createElement("div");
-      submenu.className = "submenu";
-
-      if (isInsideSection) {
-        submenu.classList.add("is-visible");
-      }
-
-      const sectionConfig = await fetchJson(new URL("nav.json", sectionBaseUrl));
-
-      for (const page of sectionConfig.pages || []) {
-        submenu.appendChild(createLink(page, sectionBaseUrl));
-      }
-
-      if (submenu.childElementCount > 0) {
-        nav.appendChild(submenu);
-      }
+    for (const page of sectionPages) {
+      submenu.appendChild(createLink(page, sectionBaseUrl));
     }
+
+    nav.appendChild(submenu);
   }
 
   function createLink(item, baseUrl) {
     const link = document.createElement("a");
-    const href = new URL(item.href, baseUrl);
+    const resolvedHref = resolveHref(item.href, baseUrl);
+    const resolvedUrl = new URL(item.href, baseUrl);
 
     link.className = "nav-link";
-    link.href = href.pathname + href.search + href.hash;
+    link.href = resolvedUrl.pathname + resolvedUrl.search + resolvedUrl.hash;
     link.textContent = item.title;
 
-    if (normalizePathname(href.pathname) === currentPagePath) {
+    if (normalizePathname(resolvedHref) === currentPagePath) {
       link.classList.add("active");
     }
 
     return link;
   }
 
-  async function fetchJson(url) {
-    const response = await fetch(url.href);
-
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status} fuer ${url.href}`);
-    }
-
-    return response.json();
+  function resolveHref(href, baseUrl) {
+    return new URL(href, baseUrl).pathname;
   }
 
   function normalizePathname(pathname) {
