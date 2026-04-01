@@ -12,6 +12,15 @@ Die Struktur, Navigation, Linklogik und Inhalte sollen zu den bereits vorhandene
 Der Bereich `erlebe-den-osterweg/` ist das erste konkrete Referenzbeispiel in diesem Repository.
 Zukuenftige Bereiche sollen sich daran orientieren, aber mit ihren jeweils eigenen Titeln, Inhalten, Unterordnern und Liedfolgen angelegt werden.
 
+## Schreibweise
+
+In sichtbaren deutschen Texten sollen echte Umlaute und das `ß` verwendet werden.
+
+- Schreibe also `Ü`, `Ä`, `Ö`, `ü`, `ä`, `ö` und `ß`
+- Vermeide Umschreibungen wie `UE`, `AE`, `OE`, `ue`, `ae`, `oe` oder `ss`, wenn es sich um normales Deutsch handelt
+- Das gilt besonders für Überschriften, Fließtexte, Navigation, Beschriftungen und neue Inhalte auf den HTML-Seiten
+- Bestehende HTML-Entities wie `&uuml;`, `&auml;`, `&ouml;` und `&szlig;` sind weiterhin in Ordnung, wenn sie im HTML bereits so verwendet werden
+
 ## Wichtige Grundregel
 
 Wenn eine neue Liedseite erstellt wird, orientiere dich immer zuerst an den bereits vorhandenen Liedseiten im Ordner `erlebe-den-osterweg/`.
