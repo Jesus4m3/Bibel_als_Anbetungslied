@@ -109,9 +109,86 @@ a:hover {
 }
 
 .breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
   margin: 0 0 16px;
   font-size: 0.95rem;
   color: #5a4b3c;
+}
+
+.breadcrumb-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.breadcrumb-link {
+  color: #5a4b3c;
+  text-decoration: none;
+}
+
+.breadcrumb-link.is-current {
+  font-weight: 700;
+  color: #3d3024;
+}
+
+.breadcrumb-toggle {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--accent);
+  border-radius: 999px;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.8rem;
+  line-height: 1;
+  padding: 0;
+}
+
+.breadcrumb-separator {
+  color: #8b7968;
+}
+
+.breadcrumb-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 220px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 252, 246, 0.98);
+  box-shadow: 0 14px 24px rgba(34, 28, 21, 0.12);
+  z-index: 20;
+}
+
+.breadcrumb-item.is-open .breadcrumb-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.breadcrumb-menu-link {
+  display: block;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--accent);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.breadcrumb-menu-link.active {
+  border-color: #b98522;
+  background: #fff4dc;
+  font-weight: 700;
 }
 
 .subnav {
@@ -280,6 +357,12 @@ p {
 
   .layout {
     grid-template-columns: 1fr;
+  }
+
+  .breadcrumb-menu {
+    left: 0;
+    right: auto;
+    min-width: min(260px, calc(100vw - 48px));
   }
 
   .sidebar {
