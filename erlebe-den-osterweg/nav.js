@@ -29,4 +29,8 @@ window.SECTION_NAVIGATION["erlebe-den-osterweg"] = [
     title: "Vor Pilatus steht unser König still",
     href: "lied-7-vor-pilatus-steht-unser-koenig-still.html",
   },
+  {
+    title: "Auf dem Weg nach Golgatha",
+    href: "lied-8-auf-dem-weg-nach-golgatha.html",
+  },
 ];
