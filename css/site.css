@@ -244,6 +244,15 @@ p {
   box-shadow: 0 8px 18px rgba(80, 52, 7, 0.05);
 }
 
+.entry-callout-prominent {
+  margin: 24px 0 30px;
+  padding: 22px 22px 24px;
+  border-color: rgba(133, 87, 0, 0.28);
+  background:
+    linear-gradient(135deg, rgba(255, 247, 228, 0.98), rgba(255, 252, 244, 0.94));
+  box-shadow: 0 14px 28px rgba(80, 52, 7, 0.1);
+}
+
 .entry-callout-kicker {
   margin: 0 0 8px;
   color: #855700;
@@ -269,12 +278,12 @@ p {
 
 .entry-callout-link {
   display: inline-block;
-  padding: 10px 14px;
+  padding: 12px 18px;
   border: 1px solid rgba(133, 87, 0, 0.22);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.82);
   color: #6f4700;
-  font-size: 1rem;
+  font-size: 1.04rem;
   font-weight: 700;
   text-decoration: none;
 }
