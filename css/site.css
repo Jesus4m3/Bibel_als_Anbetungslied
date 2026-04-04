@@ -611,10 +611,6 @@ p {
     min-height: 0;
   }
 
-  .social-share-trigger-text {
-    display: none;
-  }
-
   .social-share-popup {
     position: absolute;
     top: calc(100% + 10px);
