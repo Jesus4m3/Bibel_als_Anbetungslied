@@ -40,6 +40,7 @@ Wenn spaeter neue Reihen oder CDs hinzukommen, gilt:
 - Bereichsnavigation: `erlebe-den-osterweg/nav.js`
 - Globale Navigation: `nav.js`
 - Styling: `css/site.css`
+- Zentrale Social-Share-Logik: `js/social-links.js`
 - Plattform-Icons: `img/platforms/`
 - Lied-Vorschaubilder: `img/lied-X-vorschaubild.jpg`
 
@@ -119,6 +120,35 @@ Jede Liedseite soll nach Moeglichkeit diese Bereiche enthalten:
 
 Dies gilt nicht nur fuer Osterlieder.
 Auch spaetere Liedseiten in anderen Reihen sollen nach demselben Bauprinzip aufgebaut werden, sofern nicht ausdruecklich etwas anderes vorgegeben wird.
+
+## Soziale Links und Teilen
+
+Die Website verwendet eine zentrale JavaScript-Loesung fuer Social-Share-Funktionen.
+Diese Logik soll nicht pro Seite einzeln nachgebaut werden, sondern immer ueber die zentrale Datei eingebunden werden.
+
+- Zentrale Datei fuer die Teilen-Funktion: `js/social-links.js`
+- Diese Datei soll auf allen HTML-Seiten eingebunden werden
+- Die Positionierung und das Verhalten der Teilen-Funktion sollen zentral ueber `js/social-links.js` und `css/site.css` gesteuert werden
+- Wenn spaeter Netzwerke hinzukommen, Beschriftungen geaendert werden oder das Popup angepasst werden soll, soll das zentral ueber diese Dateien geschehen
+- Es sollen keine externen Social-Media-Widgets eingebunden werden
+- Es sollen keine Verbindungen zu sozialen Netzwerken aufgebaut werden, bevor der Nutzer aktiv auf einen Teilen-Button klickt
+
+### Teilen-Vorschau fuer soziale Netzwerke
+
+Damit Dienste wie WhatsApp, Facebook, LinkedIn oder X beim Teilen eine brauchbare Vorschau anzeigen, sollen geeignete Meta-Tags im `head` der Seite gesetzt werden.
+
+Bei neuen Liedseiten gilt:
+
+- `og:type`, `og:site_name`, `og:title`, `og:description`, `og:url`, `og:image` und `og:image:alt` setzen
+- zusaetzlich passende `twitter:`-Meta-Tags setzen, vor allem `twitter:card`, `twitter:title`, `twitter:description` und `twitter:image`
+- fuer Liedseiten moeglichst das vorhandene lokale Lied-Vorschaubild als Social-Vorschaubild verwenden
+- die `og:image`- und `twitter:image`-Werte mit absoluter URL zur Live-Domain angeben
+- `og:title` und `og:description` inhaltlich passend zur jeweiligen Liedseite pflegen
+
+Bei Uebersichtsseiten oder spaeteren CD-Seiten gilt:
+
+- falls ein eigenes geeignetes Social-Vorschaubild vorhanden ist, dieses ebenfalls ueber die Meta-Tags eintragen
+- falls noch kein passendes Bild vorliegt, spaeter ein geeignetes Social-Bild nachpflegen statt improvisierte oder unpassende Bilder zu verwenden
 
 ## YouTube-Video und Vorschaubild
 
@@ -237,6 +267,9 @@ Vor dem Abschluss immer pruefen:
 - Funktionieren YouTube-Link und Plattform-Links?
 - Ist der Abschnitt `Biblischer Hintergrund` enthalten?
 - Ist der Titel konsistent mit den anderen Seiten?
+- Ist `js/social-links.js` eingebunden?
+- Sind fuer Liedseiten passende Social-Meta-Tags im `head` gesetzt?
+- Zeigt die Seite beim Teilen ein passendes Vorschaubild, sobald die Meta-Tags von der Plattform gelesen werden?
 
 Wenn ein neuer Bereich oder Unterordner angelegt wurde, zusaetzlich pruefen:
 
@@ -252,8 +285,9 @@ Wenn du den Auftrag bekommst, eine neue Liedseite zu erstellen, gehe nicht frei 
 1. zuerst die neuesten vorhandenen Liedseiten lesen
 2. dann Dateiname, Navigation und Uebersichtsseite anpassen
 3. danach Thumbnail und Plattformen einbauen
-4. danach den Abschnitt `Biblischer Hintergrund` ergaenzen
-5. zum Schluss die finale Seite gegen eine bestehende Liedseite vergleichen
+4. danach Social-Share-Einbindung und Social-Meta-Tags pruefen oder ergaenzen
+5. danach den Abschnitt `Biblischer Hintergrund` ergaenzen
+6. zum Schluss die finale Seite gegen eine bestehende Liedseite vergleichen
 
 Wenn du den Auftrag bekommst, eine ganz neue Reihe, CD oder einen neuen Unterordner anzulegen, gehe so vor:
 
