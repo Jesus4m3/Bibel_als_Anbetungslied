@@ -292,6 +292,58 @@ p {
   text-decoration: underline;
 }
 
+.song-overview {
+  margin: 0 0 26px;
+}
+
+.song-overview-list {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+}
+
+.song-overview-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(255, 252, 246, 0.96), rgba(255, 247, 233, 0.88));
+  box-shadow: 0 8px 18px rgba(80, 52, 7, 0.05);
+}
+
+.song-overview-item a {
+  color: #5d3c00;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.song-overview-item a:hover {
+  text-decoration: underline;
+}
+
+.song-overview-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: #fff1cf;
+  border: 1px solid rgba(133, 87, 0, 0.18);
+  color: #7a4f00;
+  font-weight: 700;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+
 .links {
   margin: 22px 0 0;
   padding: 14px;

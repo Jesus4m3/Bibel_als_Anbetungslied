@@ -154,6 +154,13 @@ Bei Uebersichtsseiten oder spaeteren CD-Seiten gilt:
 
 Wenn ein YouTube-Link vorhanden ist, soll daraus auch das Vorschaubild eingebunden werden.
 
+Wichtig:
+
+- Fuer lokale Vorschaubilder ist ein Format in `16:9` zu bevorzugen
+- Schwarze Balken oben oder unten sollen nach Moeglichkeit vermieden werden
+- Wenn YouTube nur ein ungeeignetes `4:3`-Thumbnail mit Balken liefert, soll das lokale Bild fuer die Website in eine saubere `16:9`-Variante gebracht werden
+- Social-Vorschaubilder sollen ebenfalls auf dieser lokalen `16:9`-Datei basieren
+
 ### YouTube-ID ermitteln
 
 Beispiel-Link:
@@ -170,6 +177,10 @@ Standard-URL fuer das Thumbnail:
 
 Beispiel:
 `https://i.ytimg.com/vi/IuDbJPs3-iE/hqdefault.jpg`
+
+Hinweis:
+Diese Standard-URL kann im Einzelfall nur ein `4:3`-Bild liefern.
+Dann soll das Bild nicht ungeprueft uebernommen werden, sondern vor der Verwendung auf eine passende `16:9`-Darstellung fuer die Website geprueft werden.
 
 ### Lokale Ablage des Bildes
 
