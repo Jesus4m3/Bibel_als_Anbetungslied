@@ -607,8 +607,13 @@ p {
   }
 
   .social-share-trigger {
+    gap: 8px;
     min-width: auto;
     min-height: 0;
+    height: auto;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: none;
   }
 
   .social-share-popup {
