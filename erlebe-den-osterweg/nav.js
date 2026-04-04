@@ -33,4 +33,8 @@ window.SECTION_NAVIGATION["erlebe-den-osterweg"] = [
     title: "Auf dem Weg nach Golgatha",
     href: "lied-8-auf-dem-weg-nach-golgatha.html",
   },
+  {
+    title: "Am Kreuz von Golgatha",
+    href: "lied-9-am-kreuz-von-golgatha.html",
+  },
 ];
