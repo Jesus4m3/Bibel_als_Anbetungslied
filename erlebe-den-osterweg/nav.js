@@ -45,4 +45,8 @@ window.SECTION_NAVIGATION["erlebe-den-osterweg"] = [
     title: "Es ist vollbracht",
     href: "lied-11-es-ist-vollbracht.html",
   },
+  {
+    title: "Hosianna, er ist auferstanden",
+    href: "lied-12-hosianna-er-ist-auferstanden.html",
+  },
 ];
