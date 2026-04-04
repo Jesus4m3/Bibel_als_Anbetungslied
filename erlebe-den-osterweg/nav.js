@@ -41,4 +41,8 @@ window.SECTION_NAVIGATION["erlebe-den-osterweg"] = [
     title: "Mit Jesus im Paradies",
     href: "lied-10-mit-jesus-im-paradies.html",
   },
+  {
+    title: "Es ist vollbracht",
+    href: "lied-11-es-ist-vollbracht.html",
+  },
 ];
