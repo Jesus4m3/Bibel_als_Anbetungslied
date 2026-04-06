@@ -121,6 +121,63 @@ Jede Liedseite soll nach Moeglichkeit diese Bereiche enthalten:
 Dies gilt nicht nur fuer Osterlieder.
 Auch spaetere Liedseiten in anderen Reihen sollen nach demselben Bauprinzip aufgebaut werden, sofern nicht ausdruecklich etwas anderes vorgegeben wird.
 
+## Neue Liedtexte mit KI
+
+In diesem Repository kann KI nicht nur Liedseiten bauen, sondern auch neue Liedtexte entwerfen, wenn ausdruecklich der Auftrag dazu gegeben wird.
+
+Wenn eine Anweisung lautet, dass ein neues Lied geschrieben werden soll, dann gilt:
+
+- Die inhaltlichen Vorgaben des Auftraggebers sind verbindlich
+- Genannte Themen, Szenen, Aussagen, Bibelstellen, Schwerpunkte, Bilder oder Formulierungswuensche muessen zuerst gesammelt und inhaltlich geordnet werden
+- Die KI soll vor dem eigentlichen Schreiben gedanklich klaeren, was inhaltlich unbedingt in das Lied gehoert und wie die Aussagen sinnvoll ueber die einzelnen Teile des Liedes verteilt werden koennen
+- Wenn der Auftraggeber bereits eine klare Vorlage oder Stichpunkte vorgibt, soll die KI diese als inhaltliche Grundlage verwenden und nicht eigenmaechtig in eine andere Richtung umdeuten
+
+### Bibeltreue bei neuen Liedtexten
+
+Neue Liedtexte sollen sehr bibeltreu sein.
+Die KI soll deshalb nicht nur formulieren, sondern den Inhalt aktiv gegenpruefen.
+
+- Jede zentrale Aussage soll daran gemessen werden, ob sie von den genannten Bibelstellen wirklich gedeckt ist
+- Wenn konkrete Bibelstellen vorgegeben sind, soll die KI den Liedinhalt daran ausrichten und pruefen, ob die Aussagen dort tatsaechlich so vorkommen
+- Wenn Szenen, Aussagen oder Deutungen im Auftrag genannt werden, soll die KI sorgfaeltig darauf achten, nichts als biblische Tatsache zu behaupten, was so in der Bibel nicht steht
+- Zusaetzliche Ausschmueckungen, erfundene Details oder theologisch fragwuerdige Zuspitzungen sollen vermieden werden
+- Wenn etwas eher eine Deutung, ein Gebet, eine Antwort des Menschen oder eine poetische Verdichtung ist, soll der Text so formuliert sein, dass dies sprachlich erkennbar bleibt
+
+### Liedform und Sprache
+
+Die Liedtexte sollen nicht nur inhaltlich korrekt, sondern auch als Lied gut singbar und sprachlich gelungen sein.
+
+- Der Text soll in einer nachvollziehbaren Liedform aufgebaut werden, zum Beispiel mit mehreren Strophen und einem Refrain, bei Bedarf auch mit Bridge, Outro oder Refrain (Final)
+- Die einzelnen Teile sollen inhaltlich zusammenpassen und eine klare Entwicklung oder Wiederaufnahme haben
+- Der Refrain soll die Hauptaussage des Liedes tragen und sich gut wiederholen lassen
+- Die Sprache soll natuerlich, klar, poetisch und singbar sein
+- Reime sind willkommen, aber keine Pflicht an jeder Stelle
+- Wenn gereimt wird, sollen die Reime gut klingen und sprachlich sauber wirken
+- Zweckreime, holprige Formulierungen oder unnatuerliche Saetze nur fuer den Reim sollen vermieden werden
+- Der Text soll nicht nur auf dem Papier gut aussehen, sondern sich auch wie ein echtes Lied lesen und singen lassen
+
+### Empfohlener Ablauf fuer KI bei neuen Liedtexten
+
+Wenn die KI den Auftrag bekommt, einen neuen Liedtext zu schreiben, soll sie in dieser Reihenfolge arbeiten:
+
+1. Alle Vorgaben des Auftraggebers sammeln: Thema, Ziel, Bibelstellen, gewuenschte Inhalte, Bilder, Aussagen, Liedform
+2. Inhaltlich ordnen, welche Aussagen in Strophe 1, weitere Strophen, Refrain und gegebenenfalls Bridge gehoeren
+3. Alle zentralen Aussagen auf Bibeltreue pruefen und unklare oder nicht belegbare Punkte nicht als biblische Tatsachen formulieren
+4. Erst danach den Liedtext als singbare Fassung ausarbeiten
+5. Zum Schluss nochmals pruefen, ob der Text sowohl bibeltreu als auch sprachlich und musikalisch stimmig ist
+
+### Entwurfsstatus und Veroeffentlichung
+
+Neue Liedtexte oder neue Liedseiten duerfen bereits im Repository als Entwurf vorbereitet werden, bevor sie oeffentlich sichtbar sein sollen.
+Dabei ist wichtig zwischen technischem Anlegen und echter Veroeffentlichung zu unterscheiden.
+
+- Eine neue Liedseite darf als HTML-Datei bereits erstellt und inhaltlich ausgearbeitet werden, auch wenn sie noch nicht freigegeben ist
+- Solange kein ausdruecklicher Auftrag vorliegt, die neue Seite jetzt in die Website einzubinden oder zu veroeffentlichen, bleibt sie unveroeffentlicht
+- Unveroeffentlichte Liedseiten duerfen insbesondere noch nicht in Uebersichtsseiten, Bereichslisten, `nav.js`, globaler Navigation oder Vorherige-/Naechste-Verlinkungen aufgenommen werden
+- Das Ziel ist, dass Besucher der Website solche Entwurfsseiten ueber die normale Seitennavigation und interne Linkstruktur nicht finden
+- Erst wenn ausdruecklich gesagt wird, dass die neue Seite jetzt eingebunden oder veroeffentlicht werden soll, duerfen die noetigen Verlinkungen und Navigationseintraege gesetzt werden
+- Bis zu diesem Freigabeschritt darf die Seite vorbereitet, verbessert und vollstaendig ausformuliert werden, aber noch nicht als regulaerer Teil der Website erscheinen
+
 ## Soziale Links und Teilen
 
 Die Website verwendet eine zentrale JavaScript-Loesung fuer Social-Share-Funktionen.
