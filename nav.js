@@ -11,6 +11,11 @@ window.SITE_NAVIGATION = {
       href: "erlebe-den-osterweg/",
       folder: "erlebe-den-osterweg",
     },
+    {
+      title: "Erlebe den Pfingstweg",
+      href: "erlebe-den-pfingstweg/",
+      folder: "erlebe-den-pfingstweg",
+    },
   ],
 };
 
