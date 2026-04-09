@@ -19,8 +19,8 @@ window.SITE_NAVIGATION = {
   ],
   trailingPages: [
     {
-      title: "History",
-      href: "history.html",
+      title: "Veröffentlichungen",
+      href: "veroeffentlichungen.html",
     },
   ],
 };
