@@ -15,6 +15,8 @@ body {
   margin: 0;
   color: var(--ink);
   font-family: Georgia, "Times New Roman", serif;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   background:
     radial-gradient(circle at 12% 10%, #fff8ed 0, transparent 40%),
     radial-gradient(circle at 88% 85%, #f0d7a4 0, transparent 34%),
@@ -750,5 +752,77 @@ p {
 
   body.nav-open .sidebar {
     display: block;
+  }
+}
+
+@media (max-width: 680px) {
+  .history-table-wrap {
+    overflow: visible;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .history-table {
+    min-width: 0;
+  }
+
+  .history-table thead {
+    display: none;
+  }
+
+  .history-table,
+  .history-table tbody,
+  .history-table tr,
+  .history-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .history-table tbody {
+    display: grid;
+    gap: 12px;
+  }
+
+  .history-table tr {
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(255, 252, 246, 0.96), rgba(255, 247, 233, 0.88));
+    box-shadow: 0 8px 18px rgba(80, 52, 7, 0.05);
+  }
+
+  .history-table td {
+    display: grid;
+    grid-template-columns: minmax(88px, 108px) 1fr;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(133, 87, 0, 0.1);
+    font-size: 0.98rem;
+  }
+
+  .history-table tr td:last-child {
+    border-bottom: 0;
+  }
+
+  .history-table td::before {
+    font-weight: 700;
+    color: #6a4500;
+  }
+
+  .history-table td:nth-child(1)::before {
+    content: "Datum";
+  }
+
+  .history-table td:nth-child(2)::before {
+    content: "Bereich";
+  }
+
+  .history-table td:nth-child(3)::before {
+    content: "Lied";
+  }
+
+  .history-table a {
+    overflow-wrap: anywhere;
   }
 }
