@@ -352,6 +352,59 @@ p {
   background: rgba(255, 255, 255, 0.55);
 }
 
+.history-table-wrap {
+  margin-top: 18px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 10px 24px rgba(80, 52, 7, 0.06);
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 680px;
+}
+
+.history-table th,
+.history-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(133, 87, 0, 0.14);
+  text-align: left;
+  vertical-align: top;
+}
+
+.history-table th {
+  background: rgba(255, 241, 207, 0.72);
+  color: #6a4500;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.history-table tbody tr:nth-child(even) {
+  background: rgba(255, 250, 241, 0.7);
+}
+
+.history-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.history-table a {
+  color: #5d3c00;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.history-table a:hover {
+  text-decoration: underline;
+}
+
+.history-note {
+  margin: 0;
+  color: #5f4a33;
+}
+
 .social-share-widget {
   position: fixed;
   right: max(18px, calc((100vw - 1120px) / 2 + 30px));

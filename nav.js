@@ -17,6 +17,12 @@ window.SITE_NAVIGATION = {
       folder: "erlebe-den-pfingstweg",
     },
   ],
+  trailingPages: [
+    {
+      title: "History",
+      href: "history.html",
+    },
+  ],
 };
 
 window.SECTION_NAVIGATION = window.SECTION_NAVIGATION || {};

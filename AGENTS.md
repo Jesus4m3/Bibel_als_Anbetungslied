@@ -178,6 +178,22 @@ Dabei ist wichtig zwischen technischem Anlegen und echter Veroeffentlichung zu u
 - Erst wenn ausdruecklich gesagt wird, dass die neue Seite jetzt eingebunden oder veroeffentlicht werden soll, duerfen die noetigen Verlinkungen und Navigationseintraege gesetzt werden
 - Bis zu diesem Freigabeschritt darf die Seite vorbereitet, verbessert und vollstaendig ausformuliert werden, aber noch nicht als regulaerer Teil der Website erscheinen
 
+### History-Seite bei Veroeffentlichungen
+
+Die Datei `history.html` ist die letzte Seite des gesamten Projekts und der letzte Eintrag der globalen Navigation.
+Sie dokumentiert alle aktuell veroeffentlichten Liedseiten, die ueber die normale Navigation erreichbar sind.
+
+- Wenn ein Lied neu veroeffentlicht und in die Navigation aufgenommen wird, soll auch `history.html` aktualisiert werden
+- Der neue Eintrag kommt in der Tabelle immer an die oberste Stelle
+- Als Datum soll das aktuelle Veroeffentlichungsdatum im Format `TT.MM.JJJJ` eingetragen werden, ohne Uhrzeit
+- Die History-Tabelle soll die Spalten `Datum`, `Bereich` und `Lied` verwenden
+- Die Spalte `Bereich` soll den sprechenden Namen des Bereichs tragen und auf die passende Uebersichtsseite verlinken
+- Es sollen keine Dateipfade als sichtbarer Text in der Tabelle stehen
+- Oben stehen immer die neuesten Veroeffentlichungen
+- Wenn mehrere Eintraege denselben Datumswert haben, soll innerhalb dieses Datumsblocks die Veroeffentlichungsreihenfolge von neu nach alt sichtbar bleiben
+- In die History gehoeren nur Seiten, die tatsaechlich veroeffentlicht und in der Navigation sichtbar sind
+- Die `History`-Seite selbst bleibt der letzte Navigationspunkt und in der Seitenreihenfolge die letzte Seite
+
 ## Soziale Links und Teilen
 
 Die Website verwendet eine zentrale JavaScript-Loesung fuer Social-Share-Funktionen.

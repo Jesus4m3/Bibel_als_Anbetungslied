@@ -19,6 +19,7 @@
   const siteRootUrl = new URL("../", script.src);
   const currentPagePath = normalizePathname(window.location.pathname);
   const rootConfig = window.SITE_NAVIGATION || { pages: [], sections: [] };
+  const trailingPages = rootConfig.trailingPages || [];
   const rootLevelItems = [
     ...(rootConfig.pages || []),
     ...(rootConfig.sections || []).map((section) => ({
@@ -26,6 +27,7 @@
       href: section.href,
       folder: section.folder,
     })),
+    ...trailingPages,
   ];
   const startPage =
     findItemByPath(rootConfig.pages || [], siteRootUrl, normalizePathname("/")) ||
@@ -64,6 +66,10 @@
     }
 
     nav.appendChild(submenu);
+  }
+
+  for (const page of trailingPages) {
+    nav.appendChild(createLink(page, siteRootUrl));
   }
 
   renderBreadcrumb();
