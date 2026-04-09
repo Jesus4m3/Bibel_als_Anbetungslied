@@ -9,4 +9,8 @@ window.SECTION_NAVIGATION["erlebe-den-pfingstweg"] = [
     title: "Petrus berichtet, dass er lebt!",
     href: "lied-2-petrus-berichtet-dass-er-lebt.html",
   },
+  {
+    title: "Maria berichtet, ich hielt ihn für den Gärtner",
+    href: "lied-3-maria-berichtet-dass-sie-ihn-fuer-den-gaertner-hielt.html",
+  },
 ];
