@@ -11,6 +11,6 @@ window.SECTION_NAVIGATION["erlebe-den-pfingstweg"] = [
   },
   {
     title: "Maria berichtet, ich hielt ihn für den Gärtner",
-    href: "lied-3-maria-berichtet-dass-sie-ihn-fuer-den-gaertner-hielt.html",
+    href: "lied-3-maria-berichtet-ich-hielt-ihn-fuer-den-gaertner.html",
   },
 ];
