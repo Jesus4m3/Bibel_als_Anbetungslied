@@ -5,6 +5,13 @@ window.SITE_NAVIGATION = {
       href: "index.html",
     },
   ],
+  sectionGroups: [
+    {
+      title: "Neues Testament",
+      href: "neues-testament/",
+      folders: ["erlebe-den-osterweg", "erlebe-den-pfingstweg", "timotheus"],
+    },
+  ],
   sections: [
     {
       title: "Erlebe den Osterweg",
@@ -15,6 +22,11 @@ window.SITE_NAVIGATION = {
       title: "Erlebe den Pfingstweg",
       href: "erlebe-den-pfingstweg/",
       folder: "erlebe-den-pfingstweg",
+    },
+    {
+      title: "Timotheus",
+      href: "timotheus/",
+      folder: "timotheus",
     },
   ],
   trailingPages: [

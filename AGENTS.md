@@ -14,17 +14,44 @@ Zukuenftige Bereiche sollen sich daran orientieren, aber mit ihren jeweils eigen
 
 ## Schreibweise
 
-In sichtbaren deutschen Texten sollen echte Umlaute und das `ß` verwendet werden.
+In sichtbaren deutschen Texten sollen echte Umlaute und das scharfe s (Eszett) verwendet werden.
 
-- Schreibe also `Ü`, `Ä`, `Ö`, `ü`, `ä`, `ö` und `ß`
-- Vermeide Umschreibungen wie `UE`, `AE`, `OE`, `ue`, `ae`, `oe` oder `ss`, wenn es sich um normales Deutsch handelt
-- Das gilt besonders für Überschriften, Fließtexte, Navigation, Beschriftungen und neue Inhalte auf den HTML-Seiten
+- Verwende in normalen deutschen Woertern die korrekten Umlaute und nicht nur Umschreibungen mit ae, oe, ue oder ss
+- Das gilt besonders fuer Ueberschriften, Fliesstexte, Navigation, Beschriftungen und neue Inhalte auf den HTML-Seiten
 - Bestehende HTML-Entities wie `&uuml;`, `&auml;`, `&ouml;` und `&szlig;` sind weiterhin in Ordnung, wenn sie im HTML bereits so verwendet werden
+- Sichtbarer Text darf nie aus Bequemlichkeit als `ae`, `oe`, `ue` oder `ss` ausgeschrieben werden, wenn eigentlich `ä`, `ö`, `ü` oder `ß` gemeint sind
+- Das gilt ausdruecklich auch fuer Seitennavigation, Breadcrumbs, Buttons, Linktexte und Labels wie `N&auml;chste`
+
+## Zeichensatz pruefen
+
+Beim Bearbeiten von Dateien muss auf sauberen Zeichensatz geachtet werden. Neue oder geaenderte HTML-Dateien, CSS-Dateien, JS-Dateien und Markdown-Dateien sollen als UTF-8 gespeichert werden.
+
+- Nach Aenderungen sichtbare deutsche Texte gezielt auf Zeichensatzfehler pruefen
+- Typische Warnzeichen sind ploetzlich kaputte Sonderzeichenfolgen mitten im Wort oder unlesbare Zeichen an Stelle von Umlauten und typografischen Zeichen
+- Wenn ein Text nach Mojibake aussieht, muss er vor dem Abschluss korrigiert werden
+- Bei HTML duerfen notfalls HTML-Entities verwendet werden, wenn damit Zeichensatzprobleme sicher vermieden werden
+
+## Keine internen Hinweise im Sichttext
+
+Technische oder organisatorische Hinweise fuer den Aufbau der Website gehoeren nicht in den sichtbaren Seitentext.
+
+- Interne Begruendungen zur Ordnerstruktur, URL-Stabilitaet, Navigation, Hierarchie oder Dateiorganisation duerfen nicht als normaler Text auf HTML-Seiten erscheinen
+- Solche Hinweise sind nur fuer `AGENTS.md`, Kommentare, Commit-Nachrichten oder interne Arbeitsnotizen gedacht
+- Sichtbarer Seitentext soll immer aus Besuchersicht formuliert sein und nur inhaltlich passende Informationen anzeigen
+- Wenn eine Vorgabe nur beschreibt, wie etwas technisch aufgebaut werden soll, dann darf sie nicht als veroeffentlichter Beschreibungstext uebernommen werden
 
 ## Wichtige Grundregel
 
 Wenn eine neue Liedseite erstellt wird, orientiere dich immer zuerst an den bereits vorhandenen Liedseiten im Ordner `erlebe-den-osterweg/`.
 Die neue Seite soll dieselbe HTML-Struktur, dieselben Klassen, dieselbe Breadcrumb-Navigation und dieselbe untere Vorherige-/Naechste-Navigation verwenden.
+
+Zugleich gilt fuer die Seitenhierarchie:
+
+- Es gibt in der URL-Struktur weiterhin nur eine Ordnerebene fuer Bereiche mit Liedseiten
+- Ein Bereich wie `erlebe-den-osterweg/`, `erlebe-den-pfingstweg/` oder `timotheus/` bleibt direkt unter dem Projektstamm liegen
+- Uebergeordnete Sammlungsseiten wie `neues-testament/` duerfen als inhaltliche Einstiegseiten und fuer die Navigation angelegt werden
+- Solche uebergeordneten Seiten sollen aber nicht dazu fuehren, dass bestehende Liedseiten in tiefere URL-Pfade wie `neues-testament/timotheus/...` verschoben werden
+- Die Navigation darf also mehrstufig sein, waehrend die eigentlichen Lied- und Bereichs-URLs flach bleiben
 
 Wenn spaeter neue Reihen oder CDs hinzukommen, gilt:
 
@@ -51,6 +78,13 @@ Bei zukuenftigen Bereichen gilt sinngemaess dasselbe Muster:
 - eigene `nav.js` im Bereich
 - Liedseiten im jeweiligen Unterordner
 - Einbindung in die globale Navigation, falls der neue Bereich in der Seitennavigation sichtbar sein soll
+
+Wichtig fuer die Ordnerwahl:
+
+- Der oberste Bereichsordner soll moeglichst stabil benannt werden, damit URLs dauerhaft konsistent bleiben
+- Fuer Bibelbuecher oder klar abgegrenzte Reihen deshalb lieber einen dauerhaften Namen wie `timotheus/` waehlen als einen zu allgemeinen Zwischenbegriff wie `neues-testament/`
+- Wenn spaeter Inhalte innerhalb der Website neu sortiert oder anders gruppiert werden, sollen bestehende Liedseiten nach Moeglichkeit in ihrem stabilen Bereichsordner bleiben
+- Neue Bereiche deshalb so benennen, dass sie nicht schon nach kurzer Zeit umgezogen werden muessen
 
 ## Allgemeines Muster fuer zukuenftige Reihen und CDs
 
@@ -192,7 +226,7 @@ Sie dokumentiert alle aktuell veroeffentlichten Liedseiten, die ueber die normal
 - Oben stehen immer die neuesten Veroeffentlichungen
 - Wenn mehrere Eintraege denselben Datumswert haben, soll innerhalb dieses Datumsblocks die Veroeffentlichungsreihenfolge von neu nach alt sichtbar bleiben
 - In die Seite fuer Veroeffentlichungen gehoeren nur Seiten, die tatsaechlich veroeffentlicht und in der Navigation sichtbar sind
-- Die Seite `Veröffentlichungen` bleibt der letzte Navigationspunkt und in der Seitenreihenfolge die letzte Seite
+- Die Seite `Veroeffentlichungen` bleibt der letzte Navigationspunkt und in der Seitenreihenfolge die letzte Seite
 
 ## Soziale Links und Teilen
 
@@ -226,6 +260,16 @@ Bei Uebersichtsseiten oder spaeteren CD-Seiten gilt:
 ## YouTube-Video und Vorschaubild
 
 Wenn ein YouTube-Link vorhanden ist, soll daraus auch das Vorschaubild eingebunden werden.
+
+Wenn ein Lied Teil einer passenden YouTube-Playlist ist, soll fuer sichtbare Video-Links nach Moeglichkeit die Playlist-URL verwendet werden und nicht nur der nackte Einzelvideo-Link.
+
+Das gilt besonders fuer:
+
+- den Link auf dem Vorschaubild
+- den Textlink `Video auf YouTube oeffnen`
+- den Linkblock `Video:`
+
+Nur wenn keine passende Playlist vorhanden ist oder ausdruecklich etwas anderes vorgegeben wurde, soll direkt auf das Einzelvideo verlinkt werden.
 
 Wichtig:
 
@@ -382,3 +426,6 @@ Wenn du den Auftrag bekommst, eine ganz neue Reihe, CD oder einen neuen Unterord
 5. zum Schluss pruefen, ob die neue Reihe sich wie ein natuerlicher Teil derselben Website anfuehlt
 
 Diese Datei ist bewusst fuer KI leicht auffindbar im Projektstamm abgelegt.
+
+
+

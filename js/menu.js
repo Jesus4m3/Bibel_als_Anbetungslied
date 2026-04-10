@@ -13,16 +13,25 @@
     });
   }
 
-  if (!nav) return;
-  if (!script) return;
+  if (!nav || !script) return;
 
   const siteRootUrl = new URL("../", script.src);
   const currentPagePath = normalizePathname(window.location.pathname);
   const rootConfig = window.SITE_NAVIGATION || { pages: [], sections: [] };
+  const pages = rootConfig.pages || [];
+  const sectionGroups = rootConfig.sectionGroups || [];
+  const sections = rootConfig.sections || [];
   const trailingPages = rootConfig.trailingPages || [];
+  const sectionsByFolder = new Map(sections.map((section) => [section.folder, section]));
+  const groupedFolders = new Set(sectionGroups.flatMap((group) => group.folders || []));
+  const ungroupedSections = sections.filter((section) => !groupedFolders.has(section.folder));
   const rootLevelItems = [
-    ...(rootConfig.pages || []),
-    ...(rootConfig.sections || []).map((section) => ({
+    ...pages,
+    ...sectionGroups.map((group) => ({
+      title: group.title,
+      href: group.href,
+    })),
+    ...ungroupedSections.map((section) => ({
       title: section.title,
       href: section.href,
       folder: section.folder,
@@ -30,18 +39,57 @@
     ...trailingPages,
   ];
   const startPage =
-    findItemByPath(rootConfig.pages || [], siteRootUrl, normalizePathname("/")) ||
-    findItemByPath(rootConfig.pages || [], siteRootUrl, normalizePathname("/index.html")) ||
-    (rootConfig.pages || [])[0] ||
+    findItemByPath(pages, siteRootUrl, normalizePathname("/")) ||
+    findItemByPath(pages, siteRootUrl, normalizePathname("/index.html")) ||
+    pages[0] ||
     { title: "Startseite", href: "index.html" };
 
   nav.innerHTML = "";
 
-  for (const page of rootConfig.pages || []) {
+  for (const page of pages) {
     nav.appendChild(createLink(page, siteRootUrl));
   }
 
-  for (const section of rootConfig.sections || []) {
+  for (const group of sectionGroups) {
+    nav.appendChild(createLink({ title: group.title, href: group.href }, siteRootUrl));
+
+    const groupSections = getGroupSections(group);
+    if (!groupSections.length) continue;
+
+    const groupSubmenu = document.createElement("div");
+    groupSubmenu.className = "submenu";
+
+    if (isInsideGroup(group, groupSections)) {
+      groupSubmenu.classList.add("is-visible");
+    }
+
+    for (const section of groupSections) {
+      groupSubmenu.appendChild(createLink({ title: section.title, href: section.href }, siteRootUrl));
+
+      const sectionPages =
+        (window.SECTION_NAVIGATION && window.SECTION_NAVIGATION[section.folder]) || [];
+
+      if (!sectionPages.length) continue;
+
+      const nestedSubmenu = document.createElement("div");
+      nestedSubmenu.className = "submenu submenu-nested";
+      const sectionBaseUrl = new URL(`${trimSlashes(section.folder)}/`, siteRootUrl);
+
+      if (isInsideSection(section)) {
+        nestedSubmenu.classList.add("is-visible");
+      }
+
+      for (const page of sectionPages) {
+        nestedSubmenu.appendChild(createLink(page, sectionBaseUrl));
+      }
+
+      groupSubmenu.appendChild(nestedSubmenu);
+    }
+
+    nav.appendChild(groupSubmenu);
+  }
+
+  for (const section of ungroupedSections) {
     nav.appendChild(createLink({ title: section.title, href: section.href }, siteRootUrl));
 
     const sectionPages =
@@ -53,11 +101,7 @@
     submenu.className = "submenu";
     const sectionBaseUrl = new URL(`${trimSlashes(section.folder)}/`, siteRootUrl);
 
-    const sectionPath = normalizePathname(resolveHref(section.href, siteRootUrl));
-    const isInsideSection =
-      currentPagePath === sectionPath || currentPagePath.startsWith(`${sectionPath}/`);
-
-    if (isInsideSection) {
+    if (isInsideSection(section)) {
       submenu.classList.add("is-visible");
     }
 
@@ -97,7 +141,7 @@
     const context = getPageContext();
     const items = [];
 
-    if (context.type === "section") {
+    if (context.type === "group") {
       items.push({
         title: startPage.title,
         href: startPage.href,
@@ -105,6 +149,31 @@
         menuItems: getStartChildren(),
         menuBaseUrl: siteRootUrl,
       });
+      items.push({
+        title: context.group.title,
+        href: context.group.href,
+        baseUrl: siteRootUrl,
+        menuItems: context.groupSections,
+        menuBaseUrl: siteRootUrl,
+        current: true,
+      });
+    } else if (context.type === "section") {
+      items.push({
+        title: startPage.title,
+        href: startPage.href,
+        baseUrl: siteRootUrl,
+        menuItems: getStartChildren(),
+        menuBaseUrl: siteRootUrl,
+      });
+      if (context.group) {
+        items.push({
+          title: context.group.title,
+          href: context.group.href,
+          baseUrl: siteRootUrl,
+          menuItems: getGroupSections(context.group),
+          menuBaseUrl: siteRootUrl,
+        });
+      }
       items.push({
         title: context.section.title,
         href: context.section.href,
@@ -121,6 +190,15 @@
         menuItems: getStartChildren(),
         menuBaseUrl: siteRootUrl,
       });
+      if (context.group) {
+        items.push({
+          title: context.group.title,
+          href: context.group.href,
+          baseUrl: siteRootUrl,
+          menuItems: getGroupSections(context.group),
+          menuBaseUrl: siteRootUrl,
+        });
+      }
       items.push({
         title: context.section.title,
         href: context.section.href,
@@ -244,11 +322,25 @@
   }
 
   function getPageContext() {
-    for (const section of rootConfig.sections || []) {
+    for (const group of sectionGroups) {
+      const groupPath = normalizePathname(resolveHref(group.href, siteRootUrl));
+      const groupSections = getGroupSections(group);
+
+      if (currentPagePath === groupPath) {
+        return {
+          type: "group",
+          group,
+          groupSections,
+        };
+      }
+    }
+
+    for (const section of sections) {
       const sectionBaseUrl = new URL(`${trimSlashes(section.folder)}/`, siteRootUrl);
       const sectionPath = normalizePathname(resolveHref(section.href, siteRootUrl));
       const sectionPages =
         (window.SECTION_NAVIGATION && window.SECTION_NAVIGATION[section.folder]) || [];
+      const group = findGroupForSection(section.folder);
 
       if (currentPagePath === sectionPath) {
         return {
@@ -256,6 +348,7 @@
           section,
           sectionPages,
           sectionBaseUrl,
+          group,
         };
       }
 
@@ -268,6 +361,7 @@
           page: currentSectionPage,
           sectionPages,
           sectionBaseUrl,
+          group,
         };
       }
     }
@@ -303,6 +397,31 @@
   function handleDocumentClick(event) {
     if (event.target.closest(".breadcrumb-item")) return;
     closeBreadcrumbMenus();
+  }
+
+  function getGroupSections(group) {
+    return (group.folders || [])
+      .map((folder) => sectionsByFolder.get(folder))
+      .filter(Boolean);
+  }
+
+  function findGroupForSection(folder) {
+    return sectionGroups.find((group) => (group.folders || []).includes(folder)) || null;
+  }
+
+  function isInsideGroup(group, groupSections) {
+    const groupPath = normalizePathname(resolveHref(group.href, siteRootUrl));
+
+    if (currentPagePath === groupPath) {
+      return true;
+    }
+
+    return groupSections.some((section) => isInsideSection(section));
+  }
+
+  function isInsideSection(section) {
+    const sectionPath = normalizePathname(resolveHref(section.href, siteRootUrl));
+    return currentPagePath === sectionPath || currentPagePath.startsWith(`${sectionPath}/`);
   }
 
   function resolveHref(href, baseUrl) {
