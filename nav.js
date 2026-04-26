@@ -7,12 +7,22 @@ window.SITE_NAVIGATION = {
   ],
   sectionGroups: [
     {
+      title: "Altes Testament",
+      href: "altes-testament/",
+      folders: ["psalme"],
+    },
+    {
       title: "Neues Testament",
       href: "neues-testament/",
       folders: ["erlebe-den-osterweg", "erlebe-den-pfingstweg", "timotheus"],
     },
   ],
   sections: [
+    {
+      title: "Psalmen",
+      href: "psalme/",
+      folder: "psalme",
+    },
     {
       title: "Erlebe den Osterweg",
       href: "erlebe-den-osterweg/",
