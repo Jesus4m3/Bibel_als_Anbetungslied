@@ -38,6 +38,11 @@ window.SITE_NAVIGATION = {
       href: "timotheus/",
       folder: "timotheus",
     },
+    {
+      title: "Parodien",
+      href: "parodien/",
+      folder: "parodien",
+    },
   ],
   trailingPages: [
     {
