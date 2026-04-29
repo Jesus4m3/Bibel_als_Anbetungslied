@@ -17,4 +17,8 @@ window.SECTION_NAVIGATION["erlebe-den-pfingstweg"] = [
     title: "Die Emmausjünger berichten, dass Jesus mit ihnen ging",
     href: "lied-4-die-emmausjuenger-berichten-dass-jesus-mit-ihnen-ging.html",
   },
+  {
+    title: "Kleopas berichtet, wie Jesus in unsere Mitte kam",
+    href: "lied-5-kleopas-berichtet-wie-jesus-in-unsere-mitte-kam.html",
+  },
 ];
