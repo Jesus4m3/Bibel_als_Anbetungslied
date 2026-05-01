@@ -343,8 +343,9 @@ p {
 }
 
 .song-overview-item {
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
   gap: 12px;
   padding: 14px 16px;
   border: 1px solid var(--line);
@@ -354,7 +355,31 @@ p {
   box-shadow: 0 8px 18px rgba(80, 52, 7, 0.05);
 }
 
+.song-overview-number {
+  grid-row: 1 / span 2;
+}
+
+.song-overview-thumb {
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid rgba(133, 87, 0, 0.16);
+  flex: 0 0 auto;
+  display: block;
+}
+
+.song-overview-thumb-link {
+  grid-column: 2;
+  width: fit-content;
+  display: block;
+}
+
+.song-overview-thumb-link:hover {
+  text-decoration: none;
+}
+
 .song-overview-item a {
+  grid-column: 2;
   color: #5d3c00;
   font-weight: 700;
   text-decoration: none;
@@ -379,6 +404,15 @@ p {
   font-weight: 700;
   line-height: 1;
   flex: 0 0 auto;
+}
+
+.song-overview-item:not(:has(.song-overview-number)) {
+  grid-template-columns: 1fr;
+}
+
+.song-overview-item:not(:has(.song-overview-number)) .song-overview-thumb-link,
+.song-overview-item:not(:has(.song-overview-number)) a {
+  grid-column: 1;
 }
 
 .links {
@@ -435,6 +469,31 @@ p {
 
 .history-table a:hover {
   text-decoration: underline;
+}
+
+.history-song {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.history-thumb {
+  width: 130px;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid rgba(133, 87, 0, 0.16);
+  flex: 0 0 auto;
+  display: block;
+}
+
+.history-thumb-link {
+  width: fit-content;
+  display: block;
+}
+
+.history-thumb-link:hover {
+  text-decoration: none;
 }
 
 .history-note {
@@ -791,6 +850,24 @@ p {
 }
 
 @media (max-width: 680px) {
+  .song-overview-list {
+    grid-template-columns: 1fr;
+  }
+
+  .song-overview-item {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .song-overview-thumb {
+    width: 118px;
+  }
+
+  .song-overview-number {
+    min-width: 30px;
+    height: 30px;
+  }
+
   .history-table-wrap {
     overflow: visible;
     border: 0;
@@ -859,5 +936,9 @@ p {
 
   .history-table a {
     overflow-wrap: anywhere;
+  }
+
+  .history-thumb {
+    width: 108px;
   }
 }
