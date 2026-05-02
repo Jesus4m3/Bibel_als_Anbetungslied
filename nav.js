@@ -39,6 +39,11 @@ window.SITE_NAVIGATION = {
       folder: "timotheus",
     },
     {
+      title: "Martin Luther",
+      href: "martin-luther/",
+      folder: "martin-luther",
+    },
+    {
       title: "Parodien",
       href: "parodien/",
       folder: "parodien",
