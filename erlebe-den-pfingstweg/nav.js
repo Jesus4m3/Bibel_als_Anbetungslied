@@ -21,4 +21,8 @@ window.SECTION_NAVIGATION["erlebe-den-pfingstweg"] = [
     title: "Kleopas berichtet, wie Jesus in unsere Mitte kam",
     href: "lied-5-kleopas-berichtet-wie-jesus-in-unsere-mitte-kam.html",
   },
+  {
+    title: "Thomas berichtet, wie er Jesus sah",
+    href: "lied-6-thomas-berichtet-wie-er-jesus-sah.html",
+  },
 ];
