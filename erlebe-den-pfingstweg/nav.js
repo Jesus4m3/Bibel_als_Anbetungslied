@@ -25,4 +25,8 @@ window.SECTION_NAVIGATION["erlebe-den-pfingstweg"] = [
     title: "Thomas berichtet, wie er Jesus sah",
     href: "lied-6-thomas-berichtet-wie-er-jesus-sah.html",
   },
+  {
+    title: "Johannes berichtet, es ist der Herr",
+    href: "lied-7-johannes-berichtet-es-ist-der-herr.html",
+  },
 ];
