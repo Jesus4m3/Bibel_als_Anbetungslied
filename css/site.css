@@ -237,6 +237,19 @@ p {
   color: #2f261d;
 }
 
+.translation-note {
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-left: 3px solid rgba(133, 87, 0, 0.35);
+  background: rgba(255, 250, 241, 0.72);
+  color: #5a4938;
+  font-size: 0.95rem;
+}
+
+.translation-note strong {
+  color: #3d3024;
+}
+
 .section {
   margin-bottom: 18px;
   padding-bottom: 14px;
