@@ -29,4 +29,12 @@ window.SECTION_NAVIGATION["erlebe-den-pfingstweg"] = [
     title: "Johannes berichtet, es ist der Herr",
     href: "lied-7-johannes-berichtet-es-ist-der-herr.html",
   },
+  {
+    title: "Andreas berichtet, wie sein Bruder zum Hirten wurde",
+    href: "lied-8-andreas-berichtet-wie-sein-bruder-zum-hirten-wurde.html",
+  },
+  {
+    title: "Jesus berichtet, dass der Heilige Geist kommen wird",
+    href: "lied-9-jesus-berichtet-dass-der-heilige-geist-kommen-wird.html",
+  },
 ];
