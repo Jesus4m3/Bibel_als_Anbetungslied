@@ -37,4 +37,8 @@ window.SECTION_NAVIGATION["erlebe-den-pfingstweg"] = [
     title: "Jesus berichtet, dass der Heilige Geist kommen wird",
     href: "lied-9-jesus-berichtet-dass-der-heilige-geist-kommen-wird.html",
   },
+  {
+    title: "Johannes berichtet, wie Jesus in den Himmel gefahren ist",
+    href: "lied-10-johannes-berichtet-wie-jesus-in-den-himmel-gefahren-ist.html",
+  },
 ];

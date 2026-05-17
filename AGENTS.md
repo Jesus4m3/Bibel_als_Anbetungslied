@@ -130,6 +130,9 @@ Neue Sammlungen sollen "analog dazu" entstehen.
 5. Die untere Vorherige-/Naechste-Navigation anpassen.
    Auf der vorherigen Liedseite muss der `Naechste`-Link auf die neue Seite zeigen.
    Auf der neuen Seite muss der `Vorherige`-Link auf die vorherige Seite zeigen.
+   Auf der neuen Seite muss der `Naechste`-Link auf die naechste veroeffentlichte Seite oder das naechste veroeffentlichte Lied zeigen.
+   Auf der naechsten veroeffentlichten Seite oder dem naechsten veroeffentlichten Lied muss der `Vorherige`-Link ebenfalls auf die neue Seite zurueckzeigen.
+   Beim Einfuegen einer neuen veroeffentlichten Seite in eine bestehende Reihenfolge muessen also immer drei Stellen geprueft und bei Bedarf angepasst werden: die vorherige Seite, die neue Seite und die naechste Seite.
    Wenn noch keine folgende Seite existiert, bleibt rechts `Naechste ->` als nicht klickbarer Text (`<span>`).
 
 ## Inhalte einer Liedseite
@@ -391,6 +394,7 @@ Vor dem Abschluss immer pruefen:
 - Ist sie in `erlebe-den-osterweg/index.html` verlinkt?
 - Ist sie in `erlebe-den-osterweg/nav.js` aufgenommen?
 - Zeigt die Vorherige-/Naechste-Navigation korrekt?
+- Zeigt auch die naechste Seite mit ihrem `Vorherige`-Link korrekt auf die neue Seite zurueck?
 - Ist das Thumbnail lokal vorhanden?
 - Funktionieren YouTube-Link und Plattform-Links?
 - Ist der Abschnitt `Biblischer Hintergrund` enthalten?
@@ -426,6 +430,5 @@ Wenn du den Auftrag bekommst, eine ganz neue Reihe, CD oder einen neuen Unterord
 5. zum Schluss pruefen, ob die neue Reihe sich wie ein natuerlicher Teil derselben Website anfuehlt
 
 Diese Datei ist bewusst fuer KI leicht auffindbar im Projektstamm abgelegt.
-
 
 
