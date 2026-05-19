@@ -41,4 +41,8 @@ window.SECTION_NAVIGATION["erlebe-den-pfingstweg"] = [
     title: "Johannes berichtet, wie Jesus in den Himmel gefahren ist",
     href: "lied-10-johannes-berichtet-wie-jesus-in-den-himmel-gefahren-ist.html",
   },
+  {
+    title: "Maria und Petrus berichten, wie das Pfingstwunder geschah",
+    href: "lied-11-maria-und-petrus-berichten-wie-das-pfingstwunder-geschah.html",
+  },
 ];
