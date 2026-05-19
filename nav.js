@@ -14,7 +14,7 @@ window.SITE_NAVIGATION = {
     {
       title: "Neues Testament",
       href: "neues-testament/",
-      folders: ["erlebe-den-osterweg", "erlebe-den-pfingstweg", "timotheus"],
+      folders: ["erlebe-den-osterweg", "erlebe-den-pfingstweg", "johannes", "timotheus"],
     },
   ],
   sections: [
@@ -32,6 +32,11 @@ window.SITE_NAVIGATION = {
       title: "Erlebe den Pfingstweg",
       href: "erlebe-den-pfingstweg/",
       folder: "erlebe-den-pfingstweg",
+    },
+    {
+      title: "Johannes",
+      href: "johannes/",
+      folder: "johannes",
     },
     {
       title: "Timotheus",
